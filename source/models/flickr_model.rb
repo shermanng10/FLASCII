@@ -8,11 +8,12 @@ class Flickr
     tag_search(user_string_input)
     photo_id
     get_info
-    get_url
+    p get_url
+    get_ascii
   end
 
   def tag_search(string)
-    @search_item = flickr.photos.search(:tags => string).first
+    @search_item = flickr.photos.search(:tags => string.split(" ")).to_a.sample
   end
 
   def photo_id
@@ -24,8 +25,14 @@ class Flickr
   end
 
   def get_url
-    asciiphoto = AsciiArt.new(FlickRaw.url_b(get_info)).to_ascii_art(color: true)
+    FlickRaw.url_b(get_info)
+  end
+
+  def get_ascii
+    asciiphoto = AsciiArt.new(get_url).to_ascii_art(color: true)
+    puts asciiphoto
   end
 end
+
 
 
