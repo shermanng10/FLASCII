@@ -1,6 +1,5 @@
 class Word
-  def self.word?(input)
-    if input.include?(" ")
-    end
+  def self.single_word?(input)
+    !input.include?(" ")
   end
 end

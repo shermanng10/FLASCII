@@ -2,18 +2,18 @@ require 'pry'
 # require_relative 'controller'
 class View
   def self.start
+    system "clear"
     print "*"*25 + "\n"
     print "Welcome to FLASCII" + "\n"
     print "*"*25 + "\n"
     print "It searches through Flickr's API" + "\n"
     print "and outputs the searched picture in ASCII form." +"\n"
     puts ""
-
   end
 
   def self.user_search_prompt
     print "please enter a search tag: "
-    input = gets.chomp
+    gets.chomp
   end
 
   def self.loading
@@ -36,6 +36,8 @@ class View
   end
 
   def self.search_warning
-    puts "Your search input was incorrect!"
+    print "\n \n"
+    puts "Your search input was INCORRECT!"
+    sleep(2.5)
   end
 end
